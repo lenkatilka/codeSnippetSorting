@@ -1,0 +1,25 @@
+The algorithm used:
+
+processing:
+* read the line from the text file as a string
+* parse the string on the spaces into words
+* clean each word - only alphanumerical characters 
+* return the list of cleaned words
+
+estimated time and memory complexity is O(m) where m is the total number of characters in the line
+
+sorting:
+* for each word in word array, check if it is a number or a word (looping through all characters) -> complexity O(m)
+* create two new arrays, one with words and one with numbers and another array - integerIndicator - that 
+  indicates whether on the i-th word was a numbers on the input  -> memory usage O(2*m) = O(m)
+
+* sort the two arrays separately (python sorted function)-> time complexity O(n*log(n)) with n the number of words from input
+* put sorted arrays back into one sorted array for the result using the integerIndicator -> time complexity O(n)
+
+------------------------------------------
+Duplicated words:
+
+With duplicated words, the algorithm for sorting might be faster with 3-way quicksort partitioning algorithm. In such
+case, the complexity is equal to O( (2ln2)*NH ), where H is the Shannon entropy, defined as 
+H = - ( p1*lg(p1) + p2*lg(p2) + p3*lg(p3) + ... pn*lg(pn) ) and p1, ..., pn can be obtained from the duplicate word 
+frequency.
